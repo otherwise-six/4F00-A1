@@ -1,5 +1,5 @@
 #pragma once
-/* 	Basic Node implemented in C++
+/* 	Basic Doubly-Linked Node implemented in C++
 	Note: I felt this implementation too trivial to bother creating an adjoining cpp file
 	Alex vanKooten
 	St#4789665
@@ -9,24 +9,39 @@ template <class E> struct Node {
 
 	private:
 		E data;				//data stored within a node (ambiguous type)
-		Node* next;			//the next node in the list
-		//maybe implement back node too
+		Node* right;		//the next node in the list
+		Node* left;			//the previous node in the list
 
 	public:
-		void Node(E data) : data(data), next(NULL) {}	//apparently this is how cool people make constructors
-		void Node(const Node& nodely) {					//copy constructor from Node
-			this->data = nodely.data;
-			this->next = nodely.next;
+		/*Note how cool people make constructors*/
+		void Node(E data) : data(data), right(NULL), left(NULL) {}	
+
+		void Node(const Node& primeNode) {			//copy constructor from Node
+			this->data = primeNode.data;
+			this->right = primeNode.right;
+			this->left = primeNode.left;
 		}
+
 		void ~Node() {}								//destructor
 		E getData() {								//return the data in the node
 			return data;
 		}
-		Node getNext() {							//returns the next node
-			return next;
+
+		Node getRight() {							//returns the next node
+			return right;
 		}
-		void setNext(Node* nextly) {				//set the next node pointed to
-			this->next = nextly;
+
+		Node getLeft() {							//returns the previous node
+			return left;
 		}
+
+		void setRight(Node* migi) {					//set the next node pointed to
+			this->right = migi;
+		}
+
+		void setLeft(Node* hidari) {				//set the previous node pointed to
+			this->left = hidari;
+		}
+
 
 }; //Node.h

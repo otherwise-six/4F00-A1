@@ -24,7 +24,7 @@ template <class E> struct CLL {
 		void clear();						//clear all data from list
 		void insert(E);						//add data to the linked-list at pointer
 		void next();						//move the pointer clockwise
-		void back();						//move the pointer counter-clockwise
+		void prev();						//move the pointer counter-clockwise
 		E get();							//return data at pointer
 		Node remove();						//remove and return data at pointer
 

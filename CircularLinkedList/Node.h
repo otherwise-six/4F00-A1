@@ -9,38 +9,39 @@ template <class E> struct Node {
 
 	private:
 		E data;				//data stored within a node (ambiguous type)
-		Node* right;		//the next node in the list
-		Node* left;			//the previous node in the list
+		Node* next;		//the next node in the list
+		Node* prev;			//the previous node in the list
 
 	public:
 		/*Note how cool people make constructors*/
-		void Node(E data) : data(data), right(NULL), left(NULL) {}	
+		void Node(E data) : data(data), next(NULL), prev(NULL) {}	
 
 		void Node(const Node& primeNode) {			//copy constructor from Node
 			this->data = primeNode.data;
-			this->right = primeNode.right;
-			this->left = primeNode.left;
+			this->next = primeNode.next;
+			this->prev = primeNode.prev;
 		}
 
 		void ~Node() {}								//destructor
+
 		E getData() {								//return the data in the node
 			return data;
 		}
 
-		Node getRight() {							//returns the next node
-			return right;
+		Node getNext() {							//returns the next node
+			return next;
 		}
 
-		Node getLeft() {							//returns the previous node
-			return left;
+		Node getPrev() {							//returns the previous node
+			return prev;
 		}
 
-		void setRight(Node* migi) {					//set the next node pointed to
-			this->right = migi;
+		void setNext(Node* migi) {					//set the next node pointed to
+			this->next = migi;
 		}
 
-		void setLeft(Node* hidari) {				//set the previous node pointed to
-			this->left = hidari;
+		void setPrev(Node* hidari) {				//set the previous node pointed to
+			this->prev = hidari;
 		}
 
 

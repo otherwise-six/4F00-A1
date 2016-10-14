@@ -12,8 +12,11 @@ using namespace std;
 
 template <class E> struct CLL {
 
-	/*this is how cool kids make constructors apparently*/
-	void CLL() : head(NULL), size(0) {}
+	/*Default constructor*/
+	void CLL() {
+		this->head = NULL;
+		this->size = 0;
+	}
 
 	/*copy constructor*/
 	void CLL(const CLL& primeList) {
@@ -62,8 +65,13 @@ template <class E> struct CLL {
 	void insert(E data) {
 		if (size == 0) {
 			this->head = new Node(E data);
-			head.setRight(head);
-			head.setLeft(head);
+			head.setNext(this->head);
+			head.setPrev(this->head);
+			size++;
+		}
+		else {
+
+			size++;
 		}
 	}
 
